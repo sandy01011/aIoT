@@ -1,0 +1,1 @@
+This repository is going to track edge IoT device as Intelligent gateway.
