@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../dataTransporter"
+		},
+		{
+			"path": "../browser_analytics"
 		}
 	],
 	"settings": {}
