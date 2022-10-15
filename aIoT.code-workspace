@@ -8,6 +8,19 @@
 		},
 		{
 			"path": "../browser_analytics"
+		},
+		{
+			"path": "../aeka"
+		},
+		{
+			"path": "../maabraham-bkp"
+		},
+		{
+			"path": "../OPDL_Engine"
+		},
+		{
+			"name": "ONGB",
+			"path": "../ONGB"
 		}
 	],
 	"settings": {}
