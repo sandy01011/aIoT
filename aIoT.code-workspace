@@ -21,6 +21,14 @@
 		{
 			"name": "ONGB",
 			"path": "../ONGB"
+		},
+		{
+			"name": "automation_helpers",
+			"path": "../automation_helpers"
+		},
+		{
+			"name": "Visualization_Tools-AIML-DS",
+			"path": "../Visualization_Tools-AIML-DS"
 		}
 	],
 	"settings": {}
