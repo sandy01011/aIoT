@@ -29,6 +29,22 @@
 		{
 			"name": "Visualization_Tools-AIML-DS",
 			"path": "../Visualization_Tools-AIML-DS"
+		},
+		{
+			"name": "voicebook",
+			"path": "../voicebook"
+		},
+		{
+			"name": "MachineLearning",
+			"path": "../MachineLearning"
+		},
+		{
+			"name": "NLP",
+			"path": "../NLP"
+		},
+		{
+			"name": "TensorFlow_DL",
+			"path": "../TensorFlow_DL"
 		}
 	],
 	"settings": {}
