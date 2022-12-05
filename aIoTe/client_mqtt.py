@@ -28,7 +28,7 @@ def on_publish(client, userdata, result):
 
 #CERTFI_PATH = certifi.where()
 #print(CERTFI_PATH)
-CERTFI_PATH = '/RBKP0/kala_hdd_aiml_lab-19/skm_gitops/github/aIoT/aIoTe/ssl/'
+CERTFI_PATH = '/RBKP0/kala_hdd_aiml_lab-19/skm_gitops/github/aIoT/aIoTe/ssl/cert.pem'
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
 clientMQTT.tls_set(CERTFI_PATH)
