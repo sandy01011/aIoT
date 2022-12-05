@@ -26,10 +26,12 @@ def on_publish(client, userdata, result):
     print("Data published \n")
     pass
 
-
+#CERTFI_PATH = certifi.where()
+#print(CERTFI_PATH)
+CERTFI_PATH = '/RBKP0/kala_hdd_aiml_lab-19/skm_gitops/github/aIoT/aIoTe/ssl/'
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
-clientMQTT.tls_set(certifi.where())
+clientMQTT.tls_set(CERTFI_PATH)
 clientMQTT.on_connect = on_connect
 clientMQTT.on_publish = on_publish
 clientMQTT.connect(host, port=port)
