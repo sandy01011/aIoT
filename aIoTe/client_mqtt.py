@@ -7,7 +7,7 @@ Connected = False
 username = 'sandy:pyMQTT_test'
 secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37cRrA'
 host = '62.171.143.248'
-port = 9080
+port = 8883
 clientID = 'MQTTpub'
 assetID = '68V4Vpla9jqklo8bK1rBlk'
 attribute = 'publish'
@@ -31,7 +31,7 @@ def on_publish(client, userdata, result):
 #CERTFI_PATH = '/home/maruti/anaconda3/envs/drishti_bhav_1/lib/python3.10/site-packages/certifi/cacert.pem'
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
-clientMQTT.tls_set(certifi.where())
+clientMQTT.tls_set(certifi.where(),tls_version=2)
 clientMQTT.on_connect = on_connect
 clientMQTT.on_publish = on_publish
 clientMQTT.connect(host, port=port)

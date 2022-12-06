@@ -4,9 +4,9 @@ import certifi
 
 
 Connected = False
-username = 'sand_mqtt:MQTT_TEST'
-secret = 'vulMXqUyq2JKw3Uv7doSzXIUh7VJGEbq'
-host = 'localhost'
+username = 'apex:rapi'
+secret = 'KnIrbUc2Rz2wzcWYQWSRPAyEYTuCxPrs'
+host = '192.168.0.100'
 port = 443
 clientID = 'MQTT_TESTpub'
 assetID = '42dY3nRzMyL855aDOOrThM'
