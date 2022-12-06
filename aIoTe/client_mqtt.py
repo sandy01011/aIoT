@@ -1,15 +1,16 @@
 import paho.mqtt.client as mqttClient
 import time
 import certifi
+import ssl
 
-
+context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 Connected = False
-username = 'sandy:pyMQTT_test'
-secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37cRrA'
+username = 'sandeep:gateway-60ssyvgytmzt5u47z7oj1f'
+secret = '390953f2-6884-455e-abff-55ed8c15c90b'
 host = '62.171.143.248'
-port = 8443
-clientID = 'MQTTpub'
-assetID = '68V4Vpla9jqklo8bK1rBlk'
+port = 8883
+clientID = 'MQTT1403'
+assetID = '4532dbfe-bae8-42a6-ad9c-6d6e4539f4a1'
 attribute = 'publish'
 attribute_value = 15
 
@@ -31,7 +32,8 @@ def on_publish(client, userdata, result):
 #CERTFI_PATH = '/home/maruti/anaconda3/envs/drishti_bhav_1/lib/python3.10/site-packages/certifi/cacert.pem'
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
-clientMQTT.tls_set(certifi.where(),tls_version=2)
+#clientMQTT.tls_set(certifi.where(),tls_version=2)
+clientMQTT.tls_set_context(context)
 clientMQTT.on_connect = on_connect
 clientMQTT.on_publish = on_publish
 clientMQTT.connect(host, port=port)

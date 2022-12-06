@@ -10,7 +10,7 @@ def on_connect(client, userdata, flags, rc):
         global Connected #Use global variable
         Connected = True #Signal connection
     else:
-        print('Connection failed')
+        print('Connection failed !!!')
 
 def on_publish(client, userdata, result):
     print(f'Data published. Data: {attribute_value}')
@@ -54,16 +54,12 @@ while Connected != True:
     time.sleep(0.1)
 
 while attribute_value <=42 :
-    clientMQTT.publish(f'master/{clientID}/writeattributevalue/{attributeWr}/{assetID}', attribute_value)
-    clientMQTT.subscribe(f'master/{clientID}/attribute/{attributeRd}/{assetID}')
+    clientMQTT.publish(f'sandy/{clientID}/writeattributevalue/{attributeWr}/{assetID}', attribute_value)
+    clientMQTT.subscribe(f'sandy/{clientID}/attribute/{attributeRd}/{assetID}')
 
-time.sleep(5)
-attribute_value += 1
+    time.sleep(5)
+    attribute_value += 1
 clientMQTT.disconnect()
 clientMQTT.loop_stop()
 
-# the key steps here
-context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-# if you do not want to check the cert hostname, skip it
-# context.check_hostname = False
 
