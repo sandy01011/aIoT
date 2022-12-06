@@ -4,7 +4,7 @@ import certifi
 
 
 Connected = False
-username = 'master:pyMQTT_test'
+username = 'sandy:pyMQTT_test'
 secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37cRrA'
 host = '62.171.143.248'
 port = 8883
@@ -28,10 +28,10 @@ def on_publish(client, userdata, result):
 
 #CERTFI_PATH = certifi.where()
 #print(CERTFI_PATH)
-CERTFI_PATH = '/RBKP0/kala_hdd_aiml_lab-19/skm_gitops/github/aIoT/aIoTe/ssl/cert.pem'
+#CERTFI_PATH = '/home/maruti/anaconda3/envs/drishti_bhav_1/lib/python3.10/site-packages/certifi/cacert.pem'
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
-clientMQTT.tls_set(CERTFI_PATH)
+clientMQTT.tls_set(certifi.where())
 clientMQTT.on_connect = on_connect
 clientMQTT.on_publish = on_publish
 clientMQTT.connect(host, port=port)
