@@ -4,12 +4,12 @@ import certifi
 
 
 Connected = False
-username = 'sandy:pyMQTT_test'
-secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37cRrA'
-host = '62.171.143.248'
-port = 9080
-clientID = 'MQTTpub'
-assetID = '68V4Vpla9jqklo8bK1rBlk'
+username = 'sand_mqtt:MQTT_TEST'
+secret = 'vulMXqUyq2JKw3Uv7doSzXIUh7VJGEbq'
+host = 'localhost'
+port = 443
+clientID = 'MQTT_TESTpub'
+assetID = '42dY3nRzMyL855aDOOrThM'
 attribute = 'publish'
 attribute_value = 15
 
