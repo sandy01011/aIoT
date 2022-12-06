@@ -51,7 +51,7 @@ clientMQTT.connect(host, port=port)
 clientMQTT.loop_start()
 
 while Connected != True:
-time.sleep(0.1)
+    time.sleep(0.1)
 
 while attribute_value <=42 :
     clientMQTT.publish(f'master/{clientID}/writeattributevalue/{attributeWr}/{assetID}', attribute_value)
@@ -62,8 +62,8 @@ attribute_value += 1
 clientMQTT.disconnect()
 clientMQTT.loop_stop()
 
-//# the key steps here
+# the key steps here
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-//# if you do not want to check the cert hostname, skip it
-//# context.check_hostname = False
+# if you do not want to check the cert hostname, skip it
+# context.check_hostname = False
 
