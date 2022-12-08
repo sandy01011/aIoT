@@ -7,9 +7,10 @@ host = '62.171.143.248'
 port = 8883
 clientID = os.uname()[1]
 assetID = '32Yvwv1NbFQgTocQVjkGDv'
-attribute = 'rpicampublish'
+cam_attribute = 'rpicampublish'
+geo_attribute = 'location' # geo cordinates
 
 def read_env():
     return {'username':username, 'secret':secret, 'host':host, 'port':port, 'clientID':clientID,
-             'assetID':assetID, 'attribute':attribute}
-             
+             'assetID':assetID, 'attribute':cam_attribute, 'geo_attribute':geo_attribute}
+
