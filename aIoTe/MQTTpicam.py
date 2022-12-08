@@ -9,8 +9,8 @@ from geopy.geocoders import Nominatim
 from envMQTT import read_env
 
 # geo location json
-def geo_json(address='Sector75 Noida'):
-    loc = Nominatim(user_agent='GetLoc')
+def geo_json(address='Sector 75, Noida'):
+    loc = Nominatim(user_agent=os.uname()[1])
     getLoc = loc.geocode(address)
     return json.dumps({'lat':getLoc.latitude, 'long':getLoc.longitude})
 

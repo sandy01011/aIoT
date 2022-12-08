@@ -12,5 +12,5 @@ geo_attribute = 'location' # geo cordinates
 
 def read_env():
     return {'username':username, 'secret':secret, 'host':host, 'port':port, 'clientID':clientID,
-             'assetID':assetID, 'attribute':cam_attribute, 'geo_attribute':geo_attribute}
+             'assetID':assetID, 'cam_attribute':cam_attribute, 'geo_attribute':geo_attribute}
 
