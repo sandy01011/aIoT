@@ -6,12 +6,12 @@ import os
 
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 Connected = False
-username = 'sandeep:gateway-60ssyvgytmzt5u47z7oj1f'
-secret = '390953f2-6884-455e-abff-55ed8c15c90b'
+username = 'sandeep:gateway-xxx'
+secret = '390953f2-6884-455e-abff-55ed8c15c9xx'
 host = '62.171.143.248'
 port = 8883
 clientID = os.gethostid
-assetID = '60SsyVGyTmzt5u47Z7Oj1F'
+assetID = '60SsyVGyTmzt5u47Z7Ojxx'
 attribute = 'publish'
 attribute_value = 15
 

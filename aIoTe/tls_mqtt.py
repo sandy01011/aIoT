@@ -24,12 +24,12 @@ def on_message(client, userdata, message):
     print(f'Message received. Asset ID: {id}. Attribute name: {att_name}. Attribute value: {att_value}')
 
 Connected = False
-username = 'sandy:pyMQTT_test'
-secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37cRr'
+username = 'sandy:pyMQTT_xx'
+secret = '7ZDB3BodOzZvfB0A9q7mdWMTMB37xx'
 host = '62.171.143.248'
 port = 8883
 clientID = 'MQTTpub'
-assetID = '68V4Vpla9jqklo8bK1rBlk'
+assetID = '68V4Vpla9jqklo8bK1rBxx'
 attributeWr = 'publish'
 attribute_value = 10
 
