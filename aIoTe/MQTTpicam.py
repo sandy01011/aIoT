@@ -61,11 +61,12 @@ pub_attribute_value = 45
 pub_const = 'pub_const'
 pub_const_v = 45
 sub_const = 'sub_const'
-
+pub_gps = 'pub_gps'
+pub_gps_v = geo_json()
 #geo_attribute = env['geo_attribute']
 #geo_attribute_value = geo_json()
 writegps = 'writegps'
-writegps_value = geo_json()
+
 print('type of gps data', writegps_value)
 writecam = 'writecam'
 writecam_value = picarray()
