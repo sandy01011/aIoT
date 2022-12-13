@@ -1,0 +1,1 @@
+# create bridge between MQTT and Kafka broker
