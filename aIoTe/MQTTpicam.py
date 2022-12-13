@@ -7,7 +7,7 @@ import time
 import ssl
 import numpy as np
 from geopy.geocoders import Nominatim
-from envMQTT import read_env
+from aIoTe.env.envMQTT import read_env
 
 # geo location json
 def geo_json(address='Sector 50, Noida'):

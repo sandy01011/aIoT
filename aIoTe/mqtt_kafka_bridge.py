@@ -5,7 +5,7 @@ from pykafka import KafkaClient
 import time
 import ssl
 import json
-from envMQTT import read_env
+from aIoTe.env.envMQTT import read_env
 
 
 
