@@ -63,14 +63,18 @@ pub_const_v = 45
 sub_const = 'sub_const'
 pub_gps = 'pub_gps'
 pub_gps_v = geo_json()
+sub_gps = 'sub_gps'
+pub_cam = 'pub_cam'
+pub_cam_v = picarray()
+sub_cam = 'sub_cam'
+pub_loc = 'locaton'
+pub_loc_v = geo_json()
 #geo_attribute = env['geo_attribute']
 #geo_attribute_value = geo_json()
 writegps = 'writegps'
 
-print('type of gps data', writegps_value)
-writecam = 'writecam'
-writecam_value = picarray()
-print('type of cam data', writecam_value)
+print('type of gps data', pub_gps_v)
+print('type of cam data', pub_cam_v)
 
 
 def on_connect(client, userdata, flags, rc):
@@ -90,7 +94,7 @@ def on_message(client, userdata, message):
     id = msg['attributeState']['ref']['id']
     att_name = msg['attributeState']['ref']['name']
     att_value = msg['attributeState']['value']
-    print(f'Message received. Asset ID: {id}. Attribute name: {writegps}. Attribute value: {writegps_value}')
+    #print(f'Message received. Asset ID: {id}. Attribute name: {writegps}. Attribute value: {writegps_value}')
 
 clientMQTT = mqttClient.Client(clientID)
 clientMQTT.username_pw_set(username, password=secret)
@@ -104,10 +108,11 @@ clientMQTT.loop_start()
 while Connected != True:
     time.sleep(0.1)
 
-clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{sub_attribute}/{assetID}')
-clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{pub_attribute}/{assetID}', pub_attribute_value)
-clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{writegps}/{assetID}', writegps_value)
-clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{writecam}/{assetID}', writecam_value)
+clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{sub_const}/{assetID}')
+clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{pub_const}/{assetID}', pub_const_v)
+clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{pub_gps}/{assetID}', pub_gps_v)
+clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{pub_loc}/{assetID}', pub_loc_v)
+clientMQTT.publish(f'{realm}/{clientID}/writeattributevalue/{pub_cam}/{assetID}', pub_cam_v)
 
 clientMQTT.disconnect()
 clientMQTT.loop_stop()
