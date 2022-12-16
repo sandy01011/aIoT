@@ -1,3 +1,5 @@
+# subscribe topic from MQTT broker and publish it to KAFKA broker
+
 import paho.mqtt.client as mqtt
 import paho.mqtt.client as mqttClient
 from pykafka import KafkaClient
