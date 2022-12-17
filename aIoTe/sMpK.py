@@ -6,7 +6,7 @@ from pykafka import KafkaClient
 import time
 import ssl
 import json
-from envMKBpicputemp import read_env
+from envMKP import read_env
 
 
 
@@ -20,6 +20,7 @@ host = env['host']
 port = env['port']
 clientID = 'subMQTTpubKAFKA' # env['clientID']
 assetID = env['assetID']
+topics = env['topics']
 topic = env['topic']
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -29,7 +30,7 @@ def on_connect(client, userdata, flags, rc):
     else:
         print("Connection failed")
 
-def on_message(client, userdata, message):
+def on_sub_message(client, userdata, message):
     print('On message')
     #msg_payload = json.loads(message.payload.decode('utf-8'))
     #msg_payload = json.loads(message.payload)
@@ -46,27 +47,32 @@ def on_message(client, userdata, message):
 
 k_topic = realm + '.' + clientID + '.' + assetID + '.' + topic
 
-kafka_client = KafkaClient(hosts="localhost:9092")
-kafka_topic = kafka_client.topics[k_topic]
-kafka_producer = kafka_topic.get_sync_producer()
-
-clientMQTT = mqttClient.Client(clientID)
-clientMQTT.username_pw_set(username, password=secret)
-clientMQTT.tls_set_context(context)
-clientMQTT.on_connect = on_connect
-# clientMQTT.on_publish = on_publish
-clientMQTT.on_message = on_message
-clientMQTT.connect(host, port=port)
-clientMQTT.loop_start()
-
-while Connected != True:
-    time.sleep(0.1)
-
 try:
-    #clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{pub_cam}/{assetID}')
-    clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{topic}/{assetID}')
+    kafka_client = KafkaClient(hosts="localhost:9092")
+    kafka_topic = kafka_client.topics[k_topic]
+    kafka_producer = kafka_topic.get_sync_producer()
 except:
-    print('failed to sbscribe')
+    print('failed to connect kafka broker')
+try:
+    clientMQTT = mqttClient.Client(clientID)
+    clientMQTT.username_pw_set(username, password=secret)
+    clientMQTT.tls_set_context(context)
+    clientMQTT.on_connect = on_connect
+    # clientMQTT.on_publish = on_publish
+    clientMQTT.on_message = on_sub_message
+    clientMQTT.connect(host, port=port)
+    clientMQTT.loop_start()
+
+    while Connected != True:
+        time.sleep(0.1)
+
+    try:
+        #clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{pub_cam}/{assetID}')
+        clientMQTT.subscribe(f'{realm}/{clientID}/attribute/{topic}/{assetID}')
+    except:
+        print('failed to sbscribe')
+except:
+    print('failed to connect mqtt broker')
 
 try:
     while True:
