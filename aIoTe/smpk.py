@@ -1,9 +1,11 @@
 import json
+import sys
 import paho.mqtt.client as mqtt
 import paho.mqtt.client as mqttClient
 from pykafka import KafkaClient
 import time
 import ssl
+from envSmPk import read_env
 
 class smpk(object):
 
@@ -81,5 +83,5 @@ class smpk(object):
 
 
 if __name__ == '__main__':
-        r1 = smpk(10,20)
-        print(r1.width, r1.height)
+    topic = sys.arrgv[1]
+    smpk(read_env(), topic)
