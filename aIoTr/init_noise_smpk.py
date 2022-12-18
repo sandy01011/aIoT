@@ -1,4 +1,4 @@
-from smpk import *
+from aIoTr.smpk import *
 from env_noise_smpk import read_env
 print(read_env())
 print('calling smpk')
