@@ -83,5 +83,6 @@ class smpk(object):
 
 
 if __name__ == '__main__':
-    topic = sys.arrgv[1]
-    smpk(read_env(), topic)
+    topic = sys.argv[1]
+    test = smpk(read_env(), topic)
+    test.smpk_proxy
