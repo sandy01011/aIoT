@@ -1,5 +1,5 @@
 from aIoTr.smpk import *
-from env_noise_smpk import read_env
+from env.env_noise_smpk import read_env
 print(read_env())
 print('calling smpk')
 test = smpk(read_env(), 'noise')

@@ -7,7 +7,7 @@ import time
 import ssl
 from datetime import datetime as dt
 from paho.mqtt.client import connack_string as ack
-from env_smpk import read_env
+from env.env_noise_smpk import read_env
 
 Connected = False
 
