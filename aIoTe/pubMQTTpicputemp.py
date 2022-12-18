@@ -4,7 +4,7 @@ import json
 import paho.mqtt.client as mqttClient
 import time
 import ssl
-from envMQTT import read_env
+from env.env_pi_client_MQTT import read_env
 
 def picputemp():
     cpu_temp = os.popen("vcgencmd measure_temp").readline().replace("temp=", "")
