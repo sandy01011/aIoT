@@ -35,6 +35,13 @@ class pipub(object):
         self.assetID = self.env['assetID']
         print('env loaded:', self.host, self.port, self.realm,self.username, self.clientID, self.assetID)
 
+    
+    def on_publish(client, userdata, result):
+        print("Data published \n")
+        pass
+    
+    
+    
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             print("connected to broker")
