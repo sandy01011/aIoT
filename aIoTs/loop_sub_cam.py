@@ -7,6 +7,9 @@ from envMQTT import read_env
 import PIL.Image as Image
 import io
 import base64
+import json
+from time import gmtime, strftime
+
 #from byte_array import byte_data
 
 env = read_env()
@@ -38,11 +41,16 @@ def on_connect(client, userdata, flags, rc):
         print("Connection failed")
 
 def on_message(client, userdata, msg):
+    imgx = json.loads(msg.payload)['attributeState']['value']['imgx']
+    img = base64.b64decode(imgx)
+    img_name = 'pi_image_{0}_{1}.jpg'.format('test',strftime("%Y%m%d%H%M%S",gmtime()))
     # Create a file with write byte permission
-    #f = open('output.jpg', "wb")
-    #f.write(msg.payload)
-    print("Image Received", msg.payload)
-    #f.close()
+    f = open(img_name, "wb")
+    f.write(img)
+    f.close()
+    print('Image captured')
+    #print("Image Received", json.loads(msg.payload)['attributeState']['value']['imgx'])
+    #
     #openimg = subprocess.call(["open", "output.jpg"])
     #image = Image.open(io.BytesIO(msg.payload))
     #image.save('output.jpg')
