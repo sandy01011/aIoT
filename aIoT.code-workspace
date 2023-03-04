@@ -45,6 +45,18 @@
 		{
 			"name": "TensorFlow_DL",
 			"path": "../TensorFlow_DL"
+		},
+		{
+			"name": "posman",
+			"path": "../../../../lab23/posman/posman"
+		},
+		{
+			"name": "audioSignal",
+			"path": "../audioSignal"
+		},
+		{
+			"name": "videoSignal",
+			"path": "../videoSignal"
 		}
 	],
 	"settings": {}
